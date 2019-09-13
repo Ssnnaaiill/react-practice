@@ -1,9 +1,11 @@
 import React from 'react'
-import MyName from './MyName'
+//import MyName from './MyName'
+import Counter from './Counter'
 
 function App() {
   return (
-    <MyName />
+    //<MyName/>
+    <Counter/>
   )
 }
 
