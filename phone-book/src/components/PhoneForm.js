@@ -38,7 +38,7 @@ class PhoneForm extends Component {
       <form id="phone-form" onSubmit={this.handleSubmit}>
         <div id="phone-form-input">
           <input placeholder="이름" value={this.state.name} onChange={this.handleChange} name="name"></input>
-          <br></br>
+          <br/>
           <input placeholder="전화번호" value={this.state.phoneNumber} onChange={this.handleChange} name="phoneNumber"></input>
         </div>
         <div id="submit-button">

@@ -69,7 +69,7 @@ body {
 }
 
 .fun-btn {
-  /* change bg color to get different hues    */
+  /* change bg color to get different hues */
   background-color: salmon;
   color: white;
   padding: 2em 3em;
@@ -84,6 +84,23 @@ body {
 }
 
 .fun-btn:hover {
+  animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
+}
+
+.info-fun-btn {
+  background-color: salmon;
+  color: white;
+  padding: 0.5em 0.7em;
+  border: none;
+  transition: all .3s ease;
+  border-radius: 5px;
+  text-transform: uppercase;
+  outline: none;
+  align-self: center;
+  cursor: pointer;
+}
+
+.info-fun-btn:hover {
   animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
 }
 

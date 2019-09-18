@@ -31,10 +31,19 @@ class App extends Component {
     ]
   }
 
+
+  /**
+   * handleCreate
+   * create info object
+   */
+
   handleCreate = (data) => {
-    if (data.name != null) {
-      if (data.phoneNumber != null) {
-        if (isValidPhoneNumber(data.phoneNumber) != false) {
+    // check if given name is null
+    if (data.name !== null) {
+      // check if given phone number is null
+      if (data.phoneNumber !== null) {
+        // check if given phone number is valid
+        if (isValidPhoneNumber(data.phoneNumber) !== false) {
           const { information } = this.state
           this.setState({
             // add information data (Phoneinfo)
@@ -54,15 +63,29 @@ class App extends Component {
     }
   }
 
+
+  /**
+   * handleRemove
+   * delete info object with given id
+   */
+
+   handleRemove = (id) => {
+     const { information } = this.state
+     this.setState({
+       information: information.filter(info => info.id !== id)
+     })
+   }
+
   render() {
-    const { information } = this.state
     return (
       <div id="phone-book">
-        <h1>🐧전화번호부🌈</h1>
+        <h1>
+          <span role="img" aria-label="penguin">🐧</span>전화번호부<span role="img" aria-label="rainbow">🌈</span>
+        </h1>
         <div id="container">
-        <p><PhoneForm onCreate={this.handleCreate}></PhoneForm></p>
-        <p><hr></hr></p>
-        <PhoneInfoList data={this.state.information}></PhoneInfoList>
+        <p><PhoneForm onCreate={this.handleCreate}/></p>
+        <p><hr/></p>
+        <PhoneInfoList data={this.state.information} onRemove={this.handleRemove}></PhoneInfoList>
         </div>
       </div>
     )
