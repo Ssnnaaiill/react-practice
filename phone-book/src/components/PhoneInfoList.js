@@ -16,7 +16,7 @@ class PhoneInfoList extends Component {
 
     // return phone number list
     return (
-      <div>
+      <div id="phone-info-list">
         {list}    
       </div>
     )

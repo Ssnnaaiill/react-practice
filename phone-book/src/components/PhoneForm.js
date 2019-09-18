@@ -9,8 +9,8 @@ import React, { Component } from "react"
 
 class PhoneForm extends Component {
   state = {
-    name: "",
-    phoneNumber: ""
+    name: null,
+    phoneNumber: null
   }
 
   handleChange = (e) => {
@@ -35,12 +35,15 @@ class PhoneForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <p><input placeholder="name" value={this.state.name} onChange={this.handleChange} name="name"></input></p>
-          <p><input placeholder="phone number" value={this.state.phoneNumber} onChange={this.handleChange} name="phoneNumber"></input></p>
+      <form id="phone-form" onSubmit={this.handleSubmit}>
+        <div id="phone-form-input">
+          <input placeholder="이름" value={this.state.name} onChange={this.handleChange} name="name"></input>
+          <br></br>
+          <input placeholder="전화번호" value={this.state.phoneNumber} onChange={this.handleChange} name="phoneNumber"></input>
         </div>
-        <button type="submit">등록</button>
+        <div id="submit-button">
+          <button class="fun-btn" type="submit">submit</button>
+        </div>
         <div>{this.state.name} {this.state.phoneNumber}</div>
       </form>
     )
