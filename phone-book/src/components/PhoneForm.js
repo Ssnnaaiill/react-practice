@@ -28,8 +28,8 @@ class PhoneForm extends Component {
     
     // reset status
     this.setState({
-      name: "",
-      phoneNumber: ""
+      name: null,
+      phoneNumber: null
     })
   }
 
@@ -37,9 +37,9 @@ class PhoneForm extends Component {
     return (
       <form id="phone-form" onSubmit={this.handleSubmit}>
         <div id="phone-form-input">
-          <input placeholder="이름" value={this.state.name} onChange={this.handleChange} name="name"></input>
+          <input placeholder="이름" value={this.state.name} onChange={this.handleChange} name="name"/>
           <br/>
-          <input placeholder="전화번호" value={this.state.phoneNumber} onChange={this.handleChange} name="phoneNumber"></input>
+          <input placeholder="전화번호" value={this.state.phoneNumber} onChange={this.handleChange} name="phoneNumber"/>
         </div>
         <div id="submit-button">
           <button class="fun-btn" type="submit">submit</button>
