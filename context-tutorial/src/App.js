@@ -31,7 +31,7 @@ function App() {
           <Counter/>
         </div>
         <p>
-          <a id="copywrite" href="https://github.com/Ssnnaaiill/react-practice/tree/feature/phone-book-app/phone-book">
+          <a id="copywrite" href="https://github.com/Ssnnaaiill/react-practice/tree/master/context-tutorial">
             <FontAwesomeIcon icon={faGithub}/>&nbsp;
             @Ssnnaaiill context-api-tutorial
           </a>
