@@ -10,4 +10,9 @@ const Counter = ({ number, increment }) => {
   );
 };
 
-export default useAnother(Counter);
+export default useAnother(
+  ({ state, actions }) => ({
+    number: state.number,
+    increment: actions.increment
+  })
+)(Counter);
