@@ -112,16 +112,16 @@ class App extends Component {
           <span role="img" aria-label="penguin">🐧</span>전화번호부<span role="img" aria-label="rainbow">🌈</span>
         </h1>
         <div id="container">
-        <p><PhoneForm onCreate={this.handleCreate}/></p>
-        <div id="search">
-          <p>
-            <input placeholder="검색할 이름을 입력하세요!" onChange={this.handleChange} value={keyword}/>&nbsp;&nbsp;
-            <FontAwesomeIcon icon={faSearch}/>
-          </p>
-        </div>
-        <p><hr/></p>
-        <h3>현재 등록된 연락처</h3>
-        <PhoneInfoList data={filteredList} onRemove={this.handleRemove} onUpdate={this.handleUpdate}></PhoneInfoList>
+          <p><PhoneForm onCreate={this.handleCreate}/></p>
+          <div id="search">
+            <p>
+              <input placeholder="검색할 이름을 입력하세요!" onChange={this.handleChange} value={keyword}/>&nbsp;&nbsp;
+              <FontAwesomeIcon icon={faSearch}/>
+            </p>
+          </div>
+          <p><hr/></p>
+          <h3>현재 등록된 연락처</h3>
+          <PhoneInfoList data={filteredList} onRemove={this.handleRemove} onUpdate={this.handleUpdate}></PhoneInfoList>
         </div>
         <p>
           <a id="copywrite" href="https://github.com/Ssnnaaiill/react-practice/tree/feature/phone-book-app/phone-book">
