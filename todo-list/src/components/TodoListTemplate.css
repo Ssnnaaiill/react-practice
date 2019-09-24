@@ -21,6 +21,11 @@
   border-top: 1px solid lightgray;
 }
 
+.palette-wraaper {
+  padding: 1rem;
+  background: #f1f3f5;
+}
+
 .todos-wrapper {
   min-height: 5rem;
 }
