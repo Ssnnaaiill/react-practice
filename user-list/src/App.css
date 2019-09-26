@@ -1,0 +1,100 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body {
+  padding: 0;
+  font-family: "Noto Sans KR";
+  text-align: center;
+  background: #f9f9f9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#container {
+  background: white;
+  width: 512px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin: 0 auto;
+  border-radius: 10px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#form {
+  margin: 2rem 0;
+  
+}
+
+.user {
+  background: salmon;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  float: left;
+  align-items: center;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+input {
+  font-family: "Noto Sans KR";
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  border: 1px solid #999;
+}
+
+/* button */
+
+@keyframes random-bg {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+button {
+  font-family: "Noto Sans KR";
+  background-color: salmon;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  transition: all .3s ease;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: none;
+  align-self: center;
+  cursor: pointer;
+}
+
+button:hover {
+  animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
+}
+
+.start-fun {
+  background-color: #fff !important;
+  color: salmon !important;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
