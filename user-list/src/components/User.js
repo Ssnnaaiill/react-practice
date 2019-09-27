@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 class User extends Component {
   
-  shouldComponentUpdate(prevProps, prevState) {
-    return this.props.user !== prevProps.user;
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.user !== nextProps.user;
   }
+
   render() {
-    const { user: { username } } = this.props;
+    const { username } = this.props.user.toJS();
     console.log('%s is being rendered', username);
 
     return (

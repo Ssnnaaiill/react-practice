@@ -1,30 +1,47 @@
 import React, { Component } from 'react';
 import UserList from "./components/UserList";
 import './App.css';
+import { List, Record } from 'immutable';
+
+// create record for user
+const User = Record({
+  id: null,
+  username: null
+});
+
+// create record for data
+const Data = Record({
+  input: '',
+  users: List()
+});
 
 class App extends Component {
 
   id = 3;
 
   state = {
-    input: '',
-    users: [
-      {
-        id: 1,
-        username: '키뉴'
-      },
-      {
-        id: 2,
-        username: '퐁듀'
-      }
-    ]
+    data: Data({
+      input: '',
+      users: List([
+        User({
+          id: 1,
+          username: '키뉴'
+        }),
+        User({
+          id: 2,
+          username: '퐁듀'
+        })
+      ])
+    })
   };
 
   // get input value from user
   onChange = (e) => {
     const { value } = e.target;
+    const { data } = this.state;
+
     this.setState({
-      input: value
+      data: data.set('input', value)
     });
   }
 
@@ -36,21 +53,17 @@ class App extends Component {
    */
 
   onButtonClick = (e) => {
-    this.setState(
-      ({ input, users }) => (
-        {
-          input: '',
-          users: users.concat(
-            {
-              id: this.id++,
-              username: input
-            }
-          )
-        }
-      )
-    );
+    const { data } = this.state;
+
+    this.setState({
+      data: data.set('input', '').update('users', users => users.push(new User({
+        id: this.id++,
+        username: data.input
+      })))
+    });
   }
 
+  // can also submit by pressing Enter key
   onKeyPress = (e) => {
     if(e.key === 'Enter') {
       this.onButtonClick();
@@ -59,7 +72,7 @@ class App extends Component {
 
   render() {
     const { onChange, onButtonClick, onKeyPress } = this;
-    const { input, users } = this.state;
+    const { data: { input, users } } = this.state;
 
     return (
       <div>
