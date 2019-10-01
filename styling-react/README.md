@@ -36,5 +36,53 @@ $ git add .
 $ git commit
 
 $ yarn eject
+yarn run v1.17.3
+warning ..\package.json: No license field
+$ react-scripts eject
+NOTE: Create React App 2+ supports TypeScript, Sass, CSS Modules and more without ejecting: https://reactjs.org/blog/2018/10/01/create-react-app-v2.html
+
+? Are you sure you want to eject? This action is permanent. (y/N) y
 ```
 
+성공적으로 eject되고 나면 프로젝트 내에 config 경로가 생성됩니다. 여기서 config 내부의 webpack.config.js에서 sassRejex를 찾아봅니다.
+
+```javascript
+{
+  test: sassRegex,
+  exclude: sassModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 2,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+    },
+    'sass-loader'
+  ),
+  sideEffects: true,
+}
+```
+
+여기에서 use: 부분을 다음과 같이 수정합니다.
+```javascript
+{
+  test: sassRegex,
+  exclude: sassModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 2,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+    }
+  ).concat(
+    {
+      loader: require.resolve('sass-loader'),
+      options: {
+        includePaths: [paths.appSrc + '/styles'],
+        sourceMap: isEnvProduction && shouldSourceMap
+      }
+    }
+  ),
+  sideEffects: true,
+}
+```
+
+getStyleLoaders로 만든 배열 뒷부분에 우리가 사용할 loader를 options와 함께 프로젝트에 적용시킬 수 있게 되었습니다.
+설정을 해주고 나서는 서버를 재시작합니다.
