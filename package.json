@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "create-react-app": "^3.1.2",
+    "eject": "^0.0.4",
     "eslint-utils": "^1.4.2",
     "node-sass": "^4.12.0"
   }
