@@ -2,8 +2,6 @@
 
 > reference: 리액트를 다루는 기술 개정판
 
-[TOC]
-
 ## 개요
 
 Hooks는 class 없이 state를 사용할 수 있도록 하는 기능입니다.
@@ -88,3 +86,13 @@ useCall은 결국 useMemo로 함수를 반환하는 상황에서 더 편하게 �
 ## useRef
 
 useRef Hook은 함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 도와줍니다. useRef를 사용하여 ref를 설정하면 useRef를 통해 생성한 객체 안의 current 값이 실제 요소를 가리키게 됩니다.
+
+## 커스텀 Hooks 만들기
+
+여러 컴포넌트에서 비슷한 기능을 공유할 경우, 자신만의 Hook으로 작성하여 로직을 재사용할 수 있습니다.
+
+## 다른 Hooks
+
+다른 개발자가 만든 Hooks도 라이브러리로 설치하여 사용할 수 있습니다.
+[참고1](https://nikgraf.github.io/react-hooks)
+[참고2](https://github.com/rehooks/awesome-react-hooks)
