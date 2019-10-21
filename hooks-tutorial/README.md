@@ -1,5 +1,7 @@
 # hooks-tutorial
 
+> reference: 리액트를 다루는 기술 개정판
+
 ## 개요
 
 Hooks는 class 없이 state를 사용할 수 있도록 하는 기능입니다.
@@ -34,3 +36,9 @@ function reducer(state, action) {
 ```
 
 redux에서 사용되는 action object에는 해당 액션이 어떤 액션인지 알려주는 `type` 필드가 필수로 있어야 합니다. 반면 useReducer에서는 반드시 `type` 필드를 가질 필요는 없습니다.
+
+useReducer를 사용했을 때의 가장 큰 장점은 컴포넌트 업데이트 로직을 함수 밖으로 분리해낼 수 있다는 점입니다.
+
+## useMemo
+
+useMemo Hook을 사용하면 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있습니다.
