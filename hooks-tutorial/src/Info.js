@@ -46,8 +46,7 @@ const Info = () => {
       <div>
         <input value={name} onChange={onChangeName} />
         <input value={nickname} onChange={onChangeNickname} />
-      </div>
-      <div>
+        <br />
         <b>NAME: </b>
         {name}
         <br />
@@ -55,12 +54,9 @@ const Info = () => {
         {nickname}
       </div>
       <div>
-        <div>
-          <input name="id" value={id} onChange={onChange} />
-          <input name="email" value={email} onChange={onChange} />
-        </div>
-      </div>
-      <div>
+        <input name="id" value={id} onChange={onChange} />
+        <input name="email" value={email} onChange={onChange} />
+        <br />
         <b>ID: </b>
         {id}
         <br />

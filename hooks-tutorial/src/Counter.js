@@ -29,6 +29,7 @@ const Counter = () => {
 
   return (
     <div>
+      <h1>Counter</h1>
       <p>
         Current counter value is <b>{value}</b>.
       </p>

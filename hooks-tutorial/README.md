@@ -41,4 +41,44 @@ useReducer를 사용했을 때의 가장 큰 장점은 컴포넌트 업데이트
 
 ## useMemo
 
-useMemo Hook을 사용하면 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있습니다.
+useMemo Hook을 사용하면 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있습니다. 렌더링하는 과정에서 특정 값이 바뀌었을 때에만 연산을 실행하는데, 원하는 값이 바뀌지 않았다면 이전에 연산했던 결과를 다시 사용하는 방식입니다.
+
+`src/Average.js`
+
+```javascript
+const avg = useMemo(() => getAverage(list), [list]);
+```
+
+## useCallback
+
+useMemo와 비슷한 함수로 렌더링 성능을 최적화하는 데 사용됩니다. useCallback을 사용하면 이벤트 핸들러 함수를 필요할 때에만 생성할 수 있습니다.
+
+useCallback의 첫 번째 파라미터에는 생성하고 싶은 함수를 넣고, 두 번째 파라미터에는 배열을 넣습니다. 두 번재 파라미터의 배열에는 어떤 값이 바뀌었을 때 함수를 새로 생성해야 하는지 명시해야 합니다. 예시를 위해 `src/Average.js`의 **onChange**, **onInsert** 함수 코드를 가져와 보았습니다.
+
+```javascript
+// create function only when component is first rendered
+const onChange = useCallback(e => {
+  setNumber(e.target.value);
+}, []);
+```
+
+위의 예시와 같이 빈 배열을 넣게 되면 컴포넌트가 렌더링될 때 단 한 번만 함수가 생성됩니다.
+
+```javascript
+// create function only when number or list is changed
+const onInsert = useCallback(
+  e => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  },
+  [number, list]
+);
+```
+
+반면 onInsert처럼 배열 안에 number와 list를 넣게 되면 입력 내용이 바뀌거나 새로운 항목이 추가될 때마다 함수가 생성됩니다.
+
+useCall은 결국 useMemo로 함수를 반환하는 상황에서 더 편하게 사용할 수 있도록 하는 Hook이라고 이해하면 됩니다.
+
+- 숫자, 문자열, 객체처럼 일반 값을 재사용하려면 useMemo
+- 함수를 재사용하려면 useCallback
