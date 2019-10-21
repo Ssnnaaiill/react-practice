@@ -2,6 +2,8 @@
 
 > reference: 리액트를 다루는 기술 개정판
 
+[TOC]
+
 ## 개요
 
 Hooks는 class 없이 state를 사용할 수 있도록 하는 기능입니다.
@@ -82,3 +84,7 @@ useCall은 결국 useMemo로 함수를 반환하는 상황에서 더 편하게 �
 
 - 숫자, 문자열, 객체처럼 일반 값을 재사용하려면 useMemo
 - 함수를 재사용하려면 useCallback
+
+## useRef
+
+useRef Hook은 함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 도와줍니다. useRef를 사용하여 ref를 설정하면 useRef를 통해 생성한 객체 안의 current 값이 실제 요소를 가리키게 됩니다.

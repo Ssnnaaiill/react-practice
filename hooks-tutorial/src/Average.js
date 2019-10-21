@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = numbers => {
   console.log("Calculating average...");
@@ -12,6 +12,7 @@ const getAverage = numbers => {
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+  const inputEl = useRef(null);
 
   // create function only when component is first rendered
   const onChange = useCallback(e => {
@@ -24,6 +25,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
+      inputEl.current.focus();
     },
     [number, list]
   );
@@ -33,7 +35,7 @@ const Average = () => {
   return (
     <div>
       <h1>Average</h1>
-      <input value={number} onChange={onChange} />
+      <input value={number} onChange={onChange} ref={inputEl} />
       <button onClick={onInsert}>submit</button>
       <ul>
         {list.map((value, index) => (
