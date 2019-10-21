@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 
 const Counter = () => {
+  /**
+   * useState
+   * - value: counter value as status
+   * - setValue: function for changing value
+   * @param value
+   * @param setValue
+   */
+
+  // set initial counter value 0
   const [value, setValue] = useState(0);
 
   return (
