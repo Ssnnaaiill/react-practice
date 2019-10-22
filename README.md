@@ -1,7 +1,18 @@
 개인 React 공부 레포지토리
 ===
 > React 개인 공부한 내용을 정리해두는 레포지토리입니다.
+## prettier 설정
+```javascript
+{
+  "singleQuote": true,
+  "semi": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "printWidth": 80
+}
 
+```
 # 2019.09.09
 - React, Webpack, Babel에 대해서 알게 되었습니다.
 ## React app 생성하기
