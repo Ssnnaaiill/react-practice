@@ -8,6 +8,8 @@ yarn을 통해 필요한 라이브러리를 설치합니다. classnames는 조�
 $yarn add node-sass classnames react-icons
 ```
 
+[react-icons](https://react-icons.netlify.com/#/icons/md)
+
 ## 구조
 
 `src/components` 디렉터리에 다음과 같은 컴포넌트를 만들어 주었습니다. 각 컴포넌트에 적용할 scss 파일 또한 생성해 줍니다.
