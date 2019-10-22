@@ -4,13 +4,17 @@
 
 ### 라이브러리 설치
 
-yarn을 통해 필요한 라이브러리를 설치합니다. classnames는 조건부 스타일링을 더 편하게 하기 위해서, react-icons는 리액트에서 다양한 아이콘을 사용할 수 있도록 하기 위해 설치해 주었습니다.
+yarn을 통해 필요한 라이브러리를 설치합니다. classnames는 조건부 스타일링을 더 편하게 하기 위해서, [react-icons](https://react-icons.netlify.com/#/icons/md)는 리액트에서 다양한 아이콘을 사용할 수 있도록 하기 위해 설치해 주었습니다.
 
 ```bash
 $yarn add node-sass classnames react-icons
 ```
 
-[react-icons](https://react-icons.netlify.com/#/icons/md)
+[surge.sh](https://surge.sh)의 서비스를 이용하여 프로젝트를 퍼블리싱하기 위해 `-g` 옵션으로 surge를 설치해 줍니다. (여기서는 yarn 대신 npm을 사용했습니다... yarn을 이용할 수 있는 방법이 있다면 그 방법으로 사용해봅시다.)
+
+```bash
+$npm install -g surge
+```
 
 ### prettier, jsconfig 설정
 
@@ -49,3 +53,7 @@ todo-list-v2의 목적은 리액트의 구조 분석 및 실습입니다. Chrome
 - TodoInsert: 새로운 항목을 입력하고 추가할 수 있는 컴포넌트로, state를 통해 입력 값의 상태를 관리합니다.
 - TodoItemList: 각 todo 항목에 대한 정보를 보여주는 컴포넌트로, todo 객체를 props로 받아 상태에 따라 다른 스타일의 UI를 보여줍니다.
 - TodoList: `todos 배열`을 props로 받아와 이를 map을 사용해서 여러 개의 TodoListItem 컴포넌트로 변환하여 보여줍니다.
+
+## 결과물
+
+[`⚛️todo-list-v2.surge.sh`](https://todo-list-v2.surge.sh)

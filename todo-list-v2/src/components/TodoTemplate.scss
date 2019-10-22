@@ -1,8 +1,11 @@
 .TodoTemplate {
   width: 512px;
-  margin: 6rem auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   .app-title {
     background: #22b8cf;
@@ -16,5 +19,33 @@
 
   .content {
     background: white;
+  }
+}
+
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  color: #495057;
+
+  a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.1s color ease-in;
+
+    &:visited {
+      color: #495057;
+    }
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  transition: 0.1s color ease-in;
+
+  &:hover {
+    color: black;
   }
 }
