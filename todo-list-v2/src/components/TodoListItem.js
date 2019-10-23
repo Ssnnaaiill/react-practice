@@ -23,4 +23,5 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+// do not rerender unless todo, onRemove, onToggle does not change
+export default React.memo(TodoListItem);
