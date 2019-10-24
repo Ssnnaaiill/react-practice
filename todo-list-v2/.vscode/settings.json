@@ -1,4 +1,7 @@
 {
   "powermode.enabled": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "markdown.extension.showExplorer": true,
+  "markdown.extension.syntax.plainTheme": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": true
 }

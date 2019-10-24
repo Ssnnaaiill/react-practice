@@ -20,6 +20,11 @@ $yarn add node-sass classnames react-icons
 $npm install -g surge
 ```
 
+todo item들을 로드할 때 렌더링을 최적화시키기 위해 리스트 컴포넌트에서 스크롤되기 전에 보이지 않는 컴포넌트는 렌더링하지 않고 크기만 차지하게끔 하는 방식으로 낭비를 되도록 줄이려 합니다. 이를 위해 `react-virtualized`를 설치해줍니다.
+```bash
+$yarn add react-virtualized
+```
+
 ### prettier, jsconfig 설정
 
 vs code prettier extension의 코드 indentation 설정입니다. 최상위 디렉터리에 `.prettierrc`라는 이름으로 파일을 생성해 주고 다음과 같이 설정해 줍니다.
