@@ -13,10 +13,31 @@ React에서는 불변성을 유지하면서 상태를 업데이트하는 것이 
 1. immer 설치하고 사용법 알아보기
 2. immer를 사용하여 간단한 프로젝트 만들어 보기
 
-## 프로젝트 준비
+### 프로젝트 준비
 
 yarn을 통해 immer를 설치해줍니다.
 
 ```bash
 $yarn add immer
 ```
+
+## immer 사용법
+
+immer를 사용하면 불변성을 유지하는 작업을 간단하게 처리할 수 있습니다. 예시 사용법은 다음과 같습니다.
+
+```javascript
+import produce from 'immer';
+const nextState = produce(originalState, draft => {
+  // change value
+  draft.somewhere.deep.inside = 5;
+});
+```
+
+immer 라이브러리의 `produce` 함수는 두 가지 파라미터를 받습니다.
+
+1. 수정하고 싶은 상태
+2. 상태를 어떻게 업데이트할지 정의하는 함수
+
+두 번째 파라미터로 전달되는 함수 내부에서 원하는 값을 변경하면, produce 함수가 불변성 유지를 대신해 주면서 새로운 상태를 생성해 줍니다.
+
+immer의 핵심은 **불변성에 신경쓰지 않는 것처럼 코드를 작성하되, 불변성 관리는 제대로 해주는 것**입니다. 단순히 깊은 곳에 위치하는 값을 바꾸는 것 외에 배열을 처리할 때에도 매우 쉽고 편하게 작업할 수 있습니다.
