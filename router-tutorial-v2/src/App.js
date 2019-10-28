@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import About from './About';
-import Home from './Home';
-import Profile from './Profile';
+import { About, Home, Profiles, HistorySample } from './components';
 
 function App() {
   return (
@@ -15,15 +13,16 @@ function App() {
           <Link to="about">소개</Link>
         </li>
         <li>
-          <Link to="/profile/phinyata">fondue profile</Link>
+          <Link to="/profiles">프로필</Link>
         </li>
         <li>
-          <Link to="/profile/vlvldpearl">kinew profile</Link>
+          <Link to="/history">History 예제</Link>
         </li>
       </ul>
       <Route path="/" component={Home} exact={true} />
       <Route path={['/about', '/info']} component={About} />
-      <Route path="/profile/:username" component={Profile} />
+      <Route path="/profiles" component={Profiles} />
+      <Route path="/history" component={HistorySample} />
     </div>
   );
 }

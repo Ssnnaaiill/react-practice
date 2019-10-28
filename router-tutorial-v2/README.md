@@ -4,12 +4,11 @@
 ## 개요
 
 1. 프로젝트 생성 및 리액트 라우터 적용
-2. 페이지 만들기
-3. `Route` 컴포넌트로 특정 주소에 컴포넌트 연결
-4. 라우트 이동하기
-5. URL 파라미터와 query 이해하기
-6. Sub Route
-7. 부가 기능 알아보기
+2. `Route` 컴포넌트로 특정 주소에 컴포넌트 연결
+3. 라우트 이동하기
+4. URL 파라미터와 query 이해하기
+5. 서브 라우트
+6. 부가 기능 알아보기
 
 ## 1. 프로젝트 생성 및 리액트 라우터 적용
 
@@ -43,7 +42,7 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
-### Route 컴포넌트로 특정 주소에 컴포넌트 연결
+## 2. Route 컴포넌트로 특정 주소에 컴포넌트 연결
 
 Route 컴포넌트를 사용하면 어떤 규칙을 가진 경로에 어떤 컴포넌트를 보여줄 지 정의해줄 수 있습니다. 사용 방법은 다음과 같습니다.
 
@@ -67,17 +66,19 @@ Route 컴포넌트를 사용하면 어떤 규칙을 가진 경로에 어떤 컴�
 <Route path="/foo/bar" component={bar} />
 ```
 
-### Link 컴포넌트를 사용하여 다른 주소로 이동하기
+## 3. 라우트 이동하기
+> Link 컴포넌트를 사용하여 다른 주소로 이동하기
 
 Link 컴포넌트는 페이지를 전환할 때 새로고침을 하지 않고 애플리케이션은 그대로 유지한 상태에서 HTML5 History API를 사용하여 페이지의 주소만 변경합니다. Link 컴포넌트 자체는 a 태그로 이루어져 있지만, 페이지 전화를 방지하는 기능이 내장되어 있기에 이러한 활용이 가능합니다.
 
 ```javascript
 <Link to="address">Lorem Ipsum Dolar Sit Amit</Link>
 ```
+## 4. URL 파라미터와 query 이해하기
 
 ### URL 파라미터와 쿼리
 
-페이지 주소를 정의할 때 전달하는 유동적인 값은 파라미터워 쿼리로 나눌 수 있습니다.
+페이지 주소를 정의할 때 전달하는 유동적인 값은 파라미터와 쿼리로 나눌 수 있습니다.
 
 - 파라미터: /profiles/**phinyata**
 - 쿼리: /about?**details=true**
@@ -90,4 +91,33 @@ Link 컴포넌트는 페이지를 전환할 때 새로고침을 하지 않고 �
 $yarn add qs
 ```
 
+## 5. 서브 라우트
 
+서브 라우트는 라우트 내부에 또 라우트를 정의하는 것입니다. 이번 프로젝트에서는 기존의 App 컴포넌트에서 보여준 두 개의 프로필 링크를 잘라내서 **Profiles**라는 라우트 컴포넌트를 따로 만들고, 그 안에서 Profile 컴포넌트들을 서브 라우트로 사용하도록 코드를 작성했습니다.
+
+[`Profiles`](https://github.com/Ssnnaaiill/react-practice/blob/master/router-tutorial-v2/src/Profile.js)
+
+```javascript
+<Route
+  path="/profiles"
+  exact
+  render={()=><div>사용자를 선택해 주세요.}
+/>
+```
+
+이 코드에서 첫 번째 Route 컴포넌트에는 component 대신 `render`라는 props를 넣어주었습니다. 이렇게 하여 컴포넌트 자체가 아니라 보여주고 싶은 JSX를 전달할 수 있습니다.
+
+## 6. 부가 기능 알아보기
+
+### history
+`history` 객체는 라우트로 사용된 컴포넌트에 match, location과 함께 전달되는 props 중 하나로, 이 객체를 통해 컴포넌트 내에 구현하는 함수들에서 라우터 API를 호출할 수 있습니다.
+
+history를 활용하는 상황의 예로는 다음과 같은 경우가 있습니다.
+
+- 특정 버튼을 눌렀을 때 뒤로 갈 때
+- 로그인 후 화면을 전환해야 할 때
+- 다른 페이지로 이탈하는 것을 방지해야 할 때
+
+### withRouter
+
+`withRouter` 함수는 HoC(Higher-order Component)로 라우트로 사용된 컴포넌트가 아니어도 match, location, history 객체를 접근할 수 있게 해 줍니다.
