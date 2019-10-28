@@ -1,7 +1,7 @@
 # router-tutorial-v2
-리액트 라우터로 SPA 개발하기
+> 리액트 라우터로 SPA 개발하기
 
-## 개요
+## 목차
 
 1. 프로젝트 생성 및 리액트 라우터 적용
 2. `Route` 컴포넌트로 특정 주소에 컴포넌트 연결
@@ -52,8 +52,6 @@ Route 컴포넌트를 사용하면 어떤 규칙을 가진 경로에 어떤 컴�
 
 이렇게 선언해주면 여러 개의 Route 컴포넌트를 사용했을 경우 한 컴포넌트의 경로가 다른 컴포넌트의 경로에 포함되는 상황이 발생할 수 있습니다.
 
-`(예시)`
-
 ```javascript
 <Route path="/foo" component={foo} />
 <Route path="/foo/bar" component={bar} />
@@ -95,7 +93,7 @@ $yarn add qs
 
 서브 라우트는 라우트 내부에 또 라우트를 정의하는 것입니다. 이번 프로젝트에서는 기존의 App 컴포넌트에서 보여준 두 개의 프로필 링크를 잘라내서 **Profiles**라는 라우트 컴포넌트를 따로 만들고, 그 안에서 Profile 컴포넌트들을 서브 라우트로 사용하도록 코드를 작성했습니다.
 
-[`Profiles`](https://github.com/Ssnnaaiill/react-practice/blob/master/router-tutorial-v2/src/Profile.js)
+- `src/components/Profiles.js`
 
 ```javascript
 <Route
@@ -104,6 +102,7 @@ $yarn add qs
   render={()=><div>사용자를 선택해 주세요.}
 />
 ```
+
 
 이 코드에서 첫 번째 Route 컴포넌트에는 component 대신 `render`라는 props를 넣어주었습니다. 이렇게 하여 컴포넌트 자체가 아니라 보여주고 싶은 JSX를 전달할 수 있습니다.
 
@@ -121,3 +120,33 @@ history를 활용하는 상황의 예로는 다음과 같은 경우가 있습니
 ### withRouter
 
 `withRouter` 함수는 HoC(Higher-order Component)로 라우트로 사용된 컴포넌트가 아니어도 match, location, history 객체를 접근할 수 있게 해 줍니다.
+
+### Switch
+
+`Switch` 컴포넌트는 여러 Route를 감싸서 그중 일치하는 단 하나의 Route만을 렌더링합니다. 이 컴포넌트를 사용하면 모든 규칙과 일치하지 않을 때 보여 줄 **Not Found** 페이지도 구현할 수 있습니다.
+
+- `src/App.js`
+
+```javascript
+<Switch>
+  <Route path="/" component={Home} exact={true} />
+  <Route path={['/about', '/info']} component={About} />
+  <Route path="/profiles" component={Profiles} />
+  <Route path="/history" component={HistorySample} />
+  <Route
+    render={({ location }) => (
+      <div>
+        <h2>이 페이지는 존재하지 않습니다:</h2>
+        <p>{location.pathname}</p>
+      </div>
+    )}
+  />
+</Switch>
+```
+
+위 코드는 App.js의 일부분입니다. 마지막 Route 컴포넌트는 위의 다른 모든 경로들 중 현재 경로와 일치하는 것이 없다면 **이 페이지는 존재하지 않습니다** 라는 문구와 함께 경로를 화면에 출력합니다.
+
+### NavLink
+`NavLink`는 기존에 우리가 사용하던 Link와 비슷한 컴포넌트인데, 현재 경로와 Link에서 사용하는 경로가 일치하는 경우 특정 스타일 혹은 CSS 클래스를 적용할 수 있다는 차이점이 있습니다.
+
+NavLink에서 링크가 활성화되었을 때의 스타일을 적용할 때는 `activeStyle` 값을, CSS 클래스를 적용하고 싶을 때에는 `activeClassName`을 props로 지정해줍니다.
